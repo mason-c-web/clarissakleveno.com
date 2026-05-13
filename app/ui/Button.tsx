@@ -1,10 +1,12 @@
 "use client";
 
+import { MouseEventHandler } from "react";
+
 export function Button(props: {
   href: string | undefined;
   title: string;
   download?: string;
-  onClick?: Function | undefined;
+  onClick?: MouseEventHandler<HTMLAnchorElement>;
 }) {
   const { href, title, download, onClick } = props;
 
