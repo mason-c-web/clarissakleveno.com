@@ -39,7 +39,11 @@ function ArtListItem(art: ArtData) {
       <div className="flex flex-col justify-center gap-3 m-5">
         <Button
           title={art.title}
-          onClick={() => document?.getElementById(art.title)?.showModal()}
+          onClick={() =>
+            (
+              document?.getElementById(art.title) as HTMLDialogElement
+            ).showModal()
+          }
           href={undefined}
         />
       </div>
