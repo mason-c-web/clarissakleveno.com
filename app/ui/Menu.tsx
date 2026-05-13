@@ -34,7 +34,7 @@ export function Menu() {
             {getMenuItems}
           </ul>
         </div>
-        <h1 className=" text-xl">{websiteData.websiteTitle}</h1>
+        <img alt={"eee"} src={"./images/name.png"} />
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{getMenuItems}</ul>

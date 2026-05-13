@@ -1,22 +1,30 @@
 @import "tailwindcss";
 @plugin "daisyui";
 
+
 @font-face {
   font-family: BerlinXBold; /* set name */
   src: url(./../public/berlin.x-bold.ttf); /* url of the font */
 }
+
+.link {
+  color: #7658c6
+}
  .btn-custom {
-  color: #342463;
-  background-color: #ffaf94;
- }
- .menu-custom{
-  background-color: #babae9;
+  color: #371c80;
+  background-color: #dcd2f5;
  }
 
+ .menu-custom{
+  background-color: #dcd2f5;
+ }
  h1 {
   font-family: BerlinXBold; /* use font */
 }
-
 body{
-  color:  #342463;
+  color:  #371c80;
+}
+
+.border-custom{
+    color: #7658c6
 }

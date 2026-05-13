@@ -14,10 +14,7 @@ export function PageContent() {
           className="lg:max-w-sm md:max-w-sm object-contain md:object-cover rounded-lg shadow-2xl"
         />
       ) : undefined}
-      <div>
-        <h1 className="text-5xl font-bold">{page.title}</h1>
-        {page.pageContent}
-      </div>
+      <div>{page.pageContent(websiteData)}</div>
     </div>
   );
 }
