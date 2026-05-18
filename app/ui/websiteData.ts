@@ -1,7 +1,8 @@
 import { ReactNode } from "react";
 
-import { About, Zines, Art } from "./pages";
+import { About, Zines, Art, Sewing } from "./pages";
 
+import test from "./../../public/images/zines/pengiunscover.png"
 export type WebsiteData={pages:PageData[], websiteTitle:string, zines:ZineData[], art: ArtData[]}
 
 export type PageData ={
@@ -46,6 +47,9 @@ const websiteData:WebsiteData = {
       title: "Zines",
       pageContent: Zines,
     },
+    { title: "Sewing Lessons",
+      pageContent: Sewing,
+    }
 
   ],
   zines:[
