@@ -2,7 +2,6 @@ import { ReactNode } from "react";
 
 import { About, Zines, Art, Sewing } from "./pages";
 
-import test from "./../../public/images/zines/pengiunscover.png"
 export type WebsiteData={pages:PageData[], websiteTitle:string, zines:ZineData[], art: ArtData[]}
 
 export type PageData ={
@@ -31,6 +30,7 @@ export type ArtData ={
   externalLink?: ExternalLink
 
 }
+
 
 const websiteData:WebsiteData = {
   pages: [
@@ -108,13 +108,7 @@ const websiteData:WebsiteData = {
 
             }
 
-    },
-    { 
-      title: "Self Love Collection",
-      coverImage: "./images/art/quilt.jpg",
-            description:"I was a feature artist at Eight Rose Gallery with a quilt collection about self love."
-
-    },
+    }
   ],
 
   websiteTitle: "Clarissa Kleveno",
