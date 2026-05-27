@@ -4,7 +4,7 @@ import { MenuItem } from "./MenuItem";
 
 export function Menu() {
   const getMenuItems = websiteData.pages.map((item, index) => {
-    return <MenuItem title={item.title} index={index} key={index} />;
+    return <MenuItem item={item} index={index} key={index} />;
   });
 
   return (

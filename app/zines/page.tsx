@@ -1,9 +1,9 @@
-import { Link } from "../Link";
-import { ZineListItem } from "../ListItems";
-import { WebsiteData, ZineData } from "../websiteData";
+"use client";
+import { Link } from "../ui/Link";
+import { ZineListItem } from "../ui/ListItems";
+import websiteData, { ZineData } from "../ui/websiteData";
 
-export function Zines(websiteData: WebsiteData) {
-  console.log(websiteData);
+export default function Page() {
   let zines = websiteData.zines;
   return (
     <div className="flex flex-col justify-center">
@@ -19,7 +19,7 @@ export function Zines(websiteData: WebsiteData) {
         .
       </p>
       <hr className="border border-custom mb-3" />
-      <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 gap-4">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
         {/* using an array to build out an example grid with one image. Remove if you would like 
          different images. */}
         {zines.map((zine: ZineData) => ZineListItem(zine))}

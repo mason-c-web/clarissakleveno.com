@@ -1,13 +1,12 @@
 "use client";
-import { useState } from "react";
 import { Button } from "./Button";
-import { ExternalLink } from "./websiteData";
+import { Link } from "./websiteData";
 
 export function Modal(props: {
   name: string;
   image?: string;
   text?: string;
-  externalLink?: ExternalLink;
+  externalLink?: Link;
 }) {
   const { image, name, text, externalLink } = props;
 
@@ -33,7 +32,7 @@ export function Modal(props: {
             <h1 className={"text-4xl text-center"}>{name}</h1>
             <p className="py-4 text-center lg:max-w-7/10 m-auto ">{text}</p>
             {externalLink ? (
-              <Button href={externalLink.url} title={externalLink.title} />
+              <Button href={externalLink.path} title={externalLink.title} />
             ) : null}
           </div>
         </div>

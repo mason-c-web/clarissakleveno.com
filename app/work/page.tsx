@@ -1,8 +1,9 @@
-import { Link } from "../Link";
-import { ArtListItem } from "../ListItems";
-import { ArtData, WebsiteData } from "../websiteData";
+"use client";
+import { Link } from "../ui/Link";
+import { ArtListItem } from "../ui/ListItems";
+import websiteData, { ArtData } from "../ui/websiteData";
 
-export function Art(websiteData: WebsiteData) {
+export default function Page() {
   return (
     <div className="flex flex-col justify-center">
       <h1 className={"text-6xl text-center"}>Visual Art</h1>
@@ -27,7 +28,7 @@ export function Art(websiteData: WebsiteData) {
         materials.
       </p>
       <hr className="border border-custom c mb-3" />
-      <div className="grid lg:grid-cols-3 md:grid-cols-3 sm:grid-cols-1 gap-4">
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1 gap-4">
         {websiteData.art.map((art: ArtData) => ArtListItem(art))}
       </div>
     </div>

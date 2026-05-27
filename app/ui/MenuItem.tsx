@@ -1,20 +1,11 @@
-import { useContext } from "react";
+import { Link } from "./websiteData";
 
-import { PageIndexContext } from "./PageIndexContext";
-
-export function MenuItem(props: { title: string; index: number }) {
-  const { title, index } = props;
-  const { updateIndex } = useContext(PageIndexContext);
+export function MenuItem(props: { item: Link; index: number }) {
+  const { item } = props;
 
   return (
     <li>
-      <a
-        onClick={() => {
-          updateIndex(index);
-        }}
-      >
-        {title}
-      </a>
+      <a href={item.path}>{item.title}</a>
     </li>
   );
 }
