@@ -13,9 +13,10 @@ export default function Page() {
       />
       <p className="py-4 text-center lg:max-w-7/10 m-auto ">
         I teach sewing lesson in the Ballard area of Seattle. I focus on
-        pratical alteration and repair skills. I've helped many people hem there
-        own pants or fix a ripped backpack and seen the empowerment it can
-        bring.
+        pratical alteration and repair skills. I've helped many people hem their
+        own pants or fix a ripped backpack. Being able to alter my own clothing
+        to fit my body has been an important part of caring for myself. I hope
+        you leave our session feeling empowered to make clothing work for you.
       </p>
       <p className="py-4 text-center lg:max-w-7/10 m-auto ">
         My rate is $80 per 2 hour session, payable via vemno or cash. Lessons
