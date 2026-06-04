@@ -8,7 +8,7 @@ type FormInfo = {
   name: string;
   email: string;
   experiance: string;
-  lessonSelection: LessonTitle;
+  lessonSelection: LessonTitle | "";
   hasSewingMachine: string;
   isMasked: string;
   pay: string;
@@ -18,20 +18,21 @@ type FormInfo = {
 
 export default function Form() {
   const [answer, setAnswer] = useState({
-    name: null,
-    email: null,
-    experiance: null,
-    lessonSelection: null,
-    hasSewingMachine: null,
-    isMasked: null,
-    hearAbout: null,
-    notes: null,
+    name: "",
+    email: "",
+    experiance: "",
+    lessonSelection: "",
+    hasSewingMachine: "",
+    isMasked: "",
+    pay: "",
+    hearAbout: "",
+    notes: "",
   });
 
-  function handleChange(e) {
-    let copy = answer;
-    copy[e.target.id] = e.target.value;
-    setAnswer(copy);
+  function handleChange(e: { target: HTMLInputElement }) {
+    let copy: { [key: string]: string } = answer;
+    copy[e.target.id as string] = e.target.value;
+    setAnswer(copy as FormInfo);
     console.log(e.target.id);
   }
   addEventListener("submit", (event) => {
@@ -39,7 +40,7 @@ export default function Form() {
     submitForm(answer);
   });
 
-  function submitForm(answer) {
+  function submitForm(answer: FormInfo) {
     console.log(answer);
     //this doesnt do anything yet, TBD
   }
