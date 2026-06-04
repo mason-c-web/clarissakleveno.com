@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import websiteData from "./websiteData";
 
 const lessons = websiteData.lessons.map((a) => a.title);
@@ -41,12 +41,14 @@ export default function Form() {
     //this doesnt do anything yet, TBD
   }
 
-  const form = document.getElementById("form");
+  useEffect(() => {
+    const form = document.getElementById("form");
 
-  form?.addEventListener("submit", (event: any) => {
-    event.preventDefault();
-    submitForm(answer);
-  });
+    form?.addEventListener("submit", (event: any) => {
+      event.preventDefault();
+      submitForm(answer);
+    });
+  }, []);
 
   return (
     <div>
