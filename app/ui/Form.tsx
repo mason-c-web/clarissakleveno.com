@@ -35,21 +35,27 @@ export default function Form() {
     setAnswer(copy as FormInfo);
     console.log(e.target.id);
   }
-  addEventListener("submit", (event) => {
-    event.preventDefault();
-    submitForm(answer);
-  });
 
   function submitForm(answer: FormInfo) {
     console.log(answer);
     //this doesnt do anything yet, TBD
   }
 
+  const form = document.getElementById("form");
+
+  form?.addEventListener("submit", (event: any) => {
+    event.preventDefault();
+    submitForm(answer);
+  });
+
   return (
     <div>
       <h1 className={"text-6xl text-center m-3"}>Sewing Lessons Intake Form</h1>
 
-      <form className="flex flex-col items-center gap-5 justify-center">
+      <form
+        className="flex flex-col items-center gap-5 justify-center"
+        id="form"
+      >
         <div>
           <legend className="fieldset-legend m-1">What is your name?</legend>
           <input
@@ -104,8 +110,12 @@ export default function Form() {
             onChange={handleChange as any}
           >
             <option value="">Select a topic</option>
-            {lessons.map((title) => {
-              return <option value={title}>{title}</option>;
+            {lessons.map((title, index) => {
+              return (
+                <option key={index} value={title}>
+                  {title}
+                </option>
+              );
             })}
           </select>
         </div>
@@ -120,9 +130,11 @@ export default function Form() {
             required
             onChange={handleChange as any}
           >
-            <option value={""}>Select Option</option>
-            <option>Yes, I can bring my own machine</option>
-            <option>No, I will use the one provided.</option>
+            <option key={1} value={""}>
+              Select Option
+            </option>
+            <option key={2}>Yes, I can bring my own machine</option>
+            <option key={3}>No, I will use the one provided.</option>
           </select>
         </div>
         <div className="flex flex-col items-center gap-2">
@@ -158,8 +170,13 @@ export default function Form() {
               you lesson or scheduling, this is just for my records.
             </p>
           </div>
-          <select className="select" onChange={handleChange as any} required>
-            <option id="pay">Select an option</option>
+          <select
+            className="select"
+            id="pay"
+            onChange={handleChange as any}
+            required
+          >
+            <option>Select an option</option>
             <option>$30 an hour (discounted)</option>
             <option>$40 an hour (standard)</option>
             <option>$50 and hou (pay it forward)</option>
@@ -190,7 +207,7 @@ export default function Form() {
           ></textarea>
         </div>
 
-        <button className="btn btn-custom" type="submit">
+        <button className="btn btn-custom" id="submit" type="submit">
           Let's do it
         </button>
       </form>
