@@ -85,7 +85,7 @@ export default function Form() {
             placeholder="Have you used a machine before? What kind of projects have you done? ect"
             id="experiance"
             required
-            onChange={handleChange}
+            onChange={handleChange as any}
           ></textarea>
         </div>
         <div className="flex flex-col items-center gap-2 ">
@@ -101,7 +101,7 @@ export default function Form() {
             className="select appearance-none"
             id="lessonSelection"
             required
-            onChange={handleChange}
+            onChange={handleChange as any}
           >
             <option value="">Select a topic</option>
             {lessons.map((title) => {
@@ -118,7 +118,7 @@ export default function Form() {
             id="hasSewingMachine"
             className="select"
             required
-            onChange={handleChange}
+            onChange={handleChange as any}
           >
             <option value={""}>Select Option</option>
             <option>Yes, I can bring my own machine</option>
@@ -140,7 +140,7 @@ export default function Form() {
             defaultValue="Pick a color"
             className="select"
             required
-            onChange={handleChange}
+            onChange={handleChange as any}
           >
             <option value="">Select Option</option>
             <option>Yes, I want you to wear a mask.</option>
@@ -158,7 +158,7 @@ export default function Form() {
               you lesson or scheduling, this is just for my records.
             </p>
           </div>
-          <select className="select" onChange={handleChange} required>
+          <select className="select" onChange={handleChange as any} required>
             <option id="pay">Select an option</option>
             <option>$30 an hour (discounted)</option>
             <option>$40 an hour (standard)</option>
@@ -174,7 +174,7 @@ export default function Form() {
             className="textarea h-24"
             placeholder="Saw a poster, from a friend, ect"
             id="hearAbout"
-            onChange={handleChange}
+            onChange={handleChange as any}
           ></textarea>
         </div>
 
@@ -186,11 +186,10 @@ export default function Form() {
             className="textarea h-24 w-full "
             placeholder="Let me know any other concerns or questions here!"
             id="notes"
-            onChange={handleChange}
+            onChange={handleChange as any}
           ></textarea>
         </div>
 
-        {/* <Button title="Submit" onClick={() => submitForm(answer)} /> */}
         <button className="btn btn-custom" type="submit">
           Let's do it
         </button>
