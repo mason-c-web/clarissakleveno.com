@@ -49,21 +49,21 @@ const websiteData:WebsiteData = {
   zines:[
     { 
       title: "Pengiuns and Self-Compassion",
-      coverImage: "./images/zines/pengiunscover.png",
+      coverImage: "/images/zines/pengiunscover.png",
       printable:"downloads/pengiunsPrintable.pdf",
       readable:"downloads/pengiunsReadable.pdf"
 
     },
       { 
       title: "Ode to Sex Toys",
-      coverImage: "./images/zines/sextoyscover.png",
+      coverImage: "/images/zines/sextoyscover.png",
       printable:"downloads/sextoysPrintable.pdf",
       readable:"downloads/sextoysReadable.pdf"
 
     },
       { 
       title: "Clarissa's Guide to non-alcholic Alchol",
-      coverImage: "./images/zines/sobercover.png",
+      coverImage: "/images/zines/sobercover.png",
       printable:"downloads/soberPrintable.pdf",
       readable:"downloads/soberReadable.pdf"
 
@@ -74,29 +74,29 @@ const websiteData:WebsiteData = {
 
     { 
       title: "Resilent Hearts Birthday Event Posters",
-      coverImage: "./images/art/draft3.png",
+      coverImage: "/images/art/draft3.png",
       description:"Resilient Hearts Animal Sanctuary was celebrating their 7th year in operation with two events. The prompt was to create two posters which fit together to create one, but still capture the vibe of the different events. I contrasted the dark colors of the music fundraiser with the bright colors of the family fun centered street fair. "
     },
     { 
       title: "Clothing Swap",
-      coverImage: "./images/art/clothingswap.png",
+      coverImage: "/images/art/clothingswap.png",
       description:"Sustainable Ballard hosts a quarterly clothing swap which I design posters for. I kept it simple with a bold graphic of shirt which eventually became the logo for the event."
     },
         { 
       title: "Captiol Hill Tool Library Community Mural (1)",
-      coverImage: "./images/art/mural1.jpg",
+      coverImage: "/images/art/mural1.jpg",
             description:"I designed two murals to fill the parking garage at the Capitol Hill Tool Library. They were painted with help from the community. The items are meant to represent the range of items the tool library holds; gardening, woodworking, sewing, and craft supplies."
 
     },
     { 
       title: "Captiol Hill Tool Library Community Mural (2)",
-      coverImage: "./images/art/mural2.jpg",
+      coverImage: "/images/art/mural2.jpg",
             description:"I designed two murals to fill the parking garage at the Capitol Hill Tool Library. They were painted with help from the community. The items are meant to represent the range of items the tool library holds; gardening, woodworking, sewing, and craft supplies."
 
     },
        { 
       title: "Community Lunch On Captiol Hill Video",
-      coverImage: "./images/art/communitylunch.png",
+      coverImage: "/images/art/communitylunch.png",
             description:"I created a short video explaining the many offerings of Community Lunch On Capitol Hill.",
             externalLink:{ title: "Watch On Vimeo", path: "https://vimeo.com/702455038?fl=pl&fe=vl"
 
@@ -104,7 +104,11 @@ const websiteData:WebsiteData = {
     }
   ],
   lessons:[
-    {title:"Sewing Machine for Beginners", 
+       {title:"Basic Sewing Machine Setup", 
+      learn:["Help setting up a new machine", "Trouble shooting tool for a machine that is having issues."],  
+      bring:["Your sewing machine"], 
+      length:"1 Hour"},
+    {title:"Beginner Sewing Machine Intro & Project", 
       learn:["How the sewing machine works","Different stitches and what they are used for","How to set the machine for different fabrics","How to drive the machine","Construct a pratice project build confidence"],  
       bring:["Your sewing machine, otherwise you can use the one provided"], 
       length:"2 hours"},

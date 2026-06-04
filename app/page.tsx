@@ -8,7 +8,7 @@ export default function Page() {
         <h1 className={"text-6xl text-center m-3"}>About</h1>
         <img
           alt={"eee"}
-          src={"./images/me.png"}
+          src={"/images/me.png"}
           className="lg:max-w-sm md:max-w-sm object-contain md:object-cover"
         />
       </div>

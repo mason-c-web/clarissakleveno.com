@@ -8,7 +8,7 @@ export default function Page() {
       <h1 className={"text-6xl text-center m-3"}>Sewing Lessons</h1>
       <img
         alt={"eee"}
-        src={"./images/sewingmachine.png"}
+        src={"/images/sewingmachine.png"}
         className="lg:max-w-sm md:max-w-sm object-contain md:object-cover"
       />
       <p className="py-4 text-center lg:max-w-7/10 m-auto ">
