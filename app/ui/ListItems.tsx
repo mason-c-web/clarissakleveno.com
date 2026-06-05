@@ -56,7 +56,7 @@ function LessonListItem(lesson: LessonData) {
     <div className="rounded-lg shadow-2xl p-10">
       <div className="font-bold text-xl">{lesson.title}</div>
       <div className="text-xs uppercase font-semibold opacity-60">
-        {lesson.length}
+        {lesson.length} {lesson.length > 1 ? "hours" : "hour"}
       </div>
       <hr className="border border-custom c mb-3" />
 

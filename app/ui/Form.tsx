@@ -1,5 +1,6 @@
 import { useEffect, useState } from "react";
 import websiteData from "./websiteData";
+import DateForm from "./DateForm";
 
 const lessons = websiteData.lessons.map((a) => a.title);
 type LessonTitle = (typeof lessons)[number];
@@ -14,6 +15,8 @@ type FormInfo = {
   pay: string;
   hearAbout: string;
   notes: string;
+  date1: string;
+  date2: string;
 };
 
 export default function Form() {
@@ -27,39 +30,41 @@ export default function Form() {
     pay: "",
     hearAbout: "",
     notes: "",
+    date1: "",
+    date2: "",
   });
 
   function handleChange(e: { target: HTMLInputElement }) {
-    let copy: { [key: string]: string } = answer;
+    // we force a deep copy here since we want re-render to trigger when sub attribute updated
+    let copy: { [key: string]: string } = JSON.parse(JSON.stringify(answer));
     copy[e.target.id as string] = e.target.value;
     setAnswer(copy as FormInfo);
-    console.log(e.target.id);
+    console.log(answer);
   }
 
   function submitForm(answer: FormInfo) {
-    console.log(answer);
+    console.log("submitting", answer);
     //this doesnt do anything yet, TBD
   }
 
   useEffect(() => {
     const form = document.getElementById("form");
-
     form?.addEventListener("submit", (event: any) => {
-      event.preventDefault();
       submitForm(answer);
+      event.preventDefault();
     });
-  }, []);
+  });
 
   return (
     <div>
-      <h1 className={"text-6xl text-center m-3"}>Sewing Lessons Intake Form</h1>
-
       <form
         className="flex flex-col items-center gap-5 justify-center"
         id="form"
       >
         <div>
-          <legend className="fieldset-legend m-1">What is your name?</legend>
+          <legend className="fieldset-legend  flex flex-col items-centerm-1">
+            What is your name?
+          </legend>
           <input
             type="text"
             className="input"
@@ -71,7 +76,9 @@ export default function Form() {
         </div>
 
         <div>
-          <legend className="fieldset-legend m-1">What is your email?</legend>
+          <legend className="fieldset-legend flex flex-col items-centerm-1">
+            What is your email?
+          </legend>
           <label className="input validator">
             <input
               type="email"
@@ -181,10 +188,46 @@ export default function Form() {
             <option>Select an option</option>
             <option>$30 an hour (discounted)</option>
             <option>$40 an hour (standard)</option>
-            <option>$50 and hou (pay it forward)</option>
+            <option>$50 an hour (pay it forward)</option>
           </select>
         </div>
 
+        <div>
+          <div className="flex flex-col items-center">
+            <legend className="fieldset-legend">
+              Select two tenitive dates and times for the lesson.
+            </legend>
+            <p className="label">
+              This does not guarantee a slot. Once I verify the date and time is
+              available at the share office space, I will send you a follow up
+              email with an invite.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center">
+            {answer.lessonSelection ? (
+              <>
+                <DateForm
+                  onChange={handleChange}
+                  lessonType={answer.lessonSelection}
+                  id={"date1"}
+                />
+                <DateForm
+                  onChange={handleChange}
+                  lessonType={answer.lessonSelection}
+                  id={"date2"}
+                />
+                <p className="fieldset-legend">
+                  {answer.date1 && answer.date2
+                    ? `You've selected ${answer.date1} and ${answer.date2} as your tentive dates.`
+                    : null}
+                </p>
+              </>
+            ) : (
+              <p>Please Select a topic</p>
+            )}
+          </div>
+        </div>
         <div className=" flex flex-col items-center w-full">
           <legend className="fieldset-legend m-1">
             How did you hear about this?
