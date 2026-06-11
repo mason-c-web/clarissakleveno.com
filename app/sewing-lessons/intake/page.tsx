@@ -8,10 +8,7 @@ export default function Page() {
         Sewing Lesson Interest Form
       </h1>
       <div className="flex">
-        <ul
-          className=" list-disc text-wrap
-"
-        >
+        <ul className=" list-disc text-wrap lg:max-w-7/10 m-auto p-3">
           <li>
             {" "}
             Submit the form below with your info and what you're interested in
@@ -35,6 +32,7 @@ export default function Page() {
           </li>
         </ul>
       </div>
+      <hr className="border border-custom mb-3 m-4" />
 
       <Form />
     </div>

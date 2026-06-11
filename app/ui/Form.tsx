@@ -109,12 +109,13 @@ export default function Form() {
             onChange={handleChange as any}
           ></textarea>
         </div>
+
         <div className="flex flex-col items-center gap-2 ">
           <div className="flex flex-col items-center gap-2 ">
             <legend className="fieldset-legend ">
               What topic would you like to take?
             </legend>
-            <p className="label">
+            <p className="label text-wrap">
               You can see a list of all the topics on the previous page.
             </p>
           </div>
@@ -152,12 +153,13 @@ export default function Form() {
             <option key={3}>No, I will use the one provided.</option>
           </select>
         </div>
+
         <div className="flex flex-col items-center gap-2">
           <div className="flex flex-col items-center gap-2">
             <legend className="fieldset-legend">
               Would you like this lesson to be masked?
             </legend>
-            <p className="label">
+            <p className="label text-wrap">
               I might choose to wear a mask regardless, espically during flu
               season, but wear when requested.
             </p>
@@ -180,7 +182,7 @@ export default function Form() {
             <legend className="fieldset-legend">
               What would you like to pay?
             </legend>
-            <p className="label">
+            <p className="label text-wrap">
               I offer a sliding scale for pay accessiblity. This does not effect
               you lesson or scheduling, this is just for my records.
             </p>
@@ -203,7 +205,7 @@ export default function Form() {
             <legend className="fieldset-legend">
               Select two tenitive dates and times for the lesson.
             </legend>
-            <p className="label">
+            <p className="label text-wrap">
               This does not guarantee a slot. Once I verify the date and time is
               available at the share office space, I will send you a follow up
               email with an invite.
@@ -224,7 +226,7 @@ export default function Form() {
                   name={"date2"}
                 />
                 {answer.date1 && answer.date2 ? (
-                  <div className="badge badge-lg m-4 btn-custom ">
+                  <div className="badge badge-lg m-4 btn-custom">
                     You've selected {answer.date1} and {answer.date2} as your
                     tentive lesson times.
                   </div>
@@ -265,7 +267,6 @@ export default function Form() {
           Let's do it
         </button>
       </form>
-      <p>the data: {result}</p>
     </div>
   );
 }
