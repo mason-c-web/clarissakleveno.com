@@ -4,7 +4,7 @@ import { ArtData, LessonData, ZineData } from "./websiteData";
 
 function ZineListItem(zine: ZineData) {
   return (
-    <div>
+    <div key={zine.title}>
       <img
         alt={"an orange on an orange background with purple star next to it"}
         src={zine.coverImage}
@@ -24,7 +24,7 @@ function ZineListItem(zine: ZineData) {
 
 function ArtListItem(art: ArtData) {
   return (
-    <div>
+    <div key={art.title}>
       <Modal
         name={art.title}
         image={art.coverImage}
@@ -53,7 +53,7 @@ function ArtListItem(art: ArtData) {
 
 function LessonListItem(lesson: LessonData) {
   return (
-    <div className="rounded-lg shadow-2xl p-10">
+    <div className="rounded-lg shadow-2xl p-10" key={lesson.title}>
       <div className="font-bold text-xl">{lesson.title}</div>
       <div className="text-xs uppercase font-semibold opacity-60">
         {lesson.length} {lesson.length > 1 ? "hours" : "hour"}
@@ -63,14 +63,14 @@ function LessonListItem(lesson: LessonData) {
       <div>
         <p className="font-bold">What you will learn:</p>
         <ul className="list-disc  m-3">
-          {lesson.learn.map((item) => {
-            return <li>{item}</li>;
+          {lesson.learn.map((item, index) => {
+            return <li key={index}>{item}</li>;
           })}
         </ul>
         <p className="font-bold">What to bring:</p>
         <ul className="list-disc  m-3">
-          {lesson.bring.map((item) => {
-            return <li>{item}</li>;
+          {lesson.bring.map((item, index) => {
+            return <li key={index}>{item}</li>;
           })}
         </ul>
       </div>

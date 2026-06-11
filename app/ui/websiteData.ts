@@ -42,7 +42,7 @@ const websiteData:WebsiteData = {
     },
 
     { title: "Sewing Lessons",
-    path:'sewing-lessons'
+    path:'/sewing-lessons'
     }
 
   ],
@@ -137,12 +137,12 @@ const websiteData:WebsiteData = {
               "How to reenforced pant crotches"
               ],
                length:2},
-    {title:"Zippers", 
-    bring:["Your sewing machine, otherwise you can use the one provided."], 
-    learn:["Different types of zippers and their purposes",
-              "Different zipper insertion menthods",
-              "Construct a simple zipper bag to build confidence"],
-               length:2 },
+    // {title:"Zippers", 
+    // bring:["Your sewing machine, otherwise you can use the one provided."], 
+    // learn:["Different types of zippers and their purposes",
+    //           "Different zipper insertion menthods",
+    //           "Construct a simple zipper bag to build confidence"],
+    //            length:2 },
      {title:"Project Help", 
     bring:["Your sewing machine, otherwise you can use the one provided.", "Your sewing project including its pattern, fabrics and any notions"], 
     learn:["How read sewing patterns",

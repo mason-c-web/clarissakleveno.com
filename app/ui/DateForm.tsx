@@ -10,7 +10,7 @@ const availableTimes = [
   [], //sunday
   [9, 10, 11, 12, 13, 14, 15, 16], //monday
   [9, 10, 11, 12, 13, 14, 15, 16], //tuesday
-  [9, 10, 11, 12, 13, 14, 15, 16], //wednesday
+  [9, 10, 11, 12, 13], //wednesday
   [9, 10, 11, 12, 13, 14, 15, 16], // thursday,
   [9, 10, 11, 12, 13, 14, 15, 16], // friday,
   [], //saturday
@@ -24,20 +24,21 @@ thirtyDaysFromNow.setHours(0, 0, 0, 0);
 
 export default function DataForm(props: {
   onChange: any;
-  id: string;
+  name: string;
   lessonType: string;
 }) {
   const [selectedDate, setDate] = useState<Date>(threeDaysFromNow);
 
-  const { onChange, id, lessonType } = props;
+  const { onChange, name, lessonType } = props;
 
   // Dates that only have specific times disabled
   const disabledDatetimes = [
-    { date: new Date(2026, 5, 10), time: [10, 11, 12] },
+    { date: new Date(2026, 5, 16), time: [12, 13, 14, 15, 16] },
+    { date: new Date(2026, 5, 18), time: [12, 13, 14, 15, 16] },
   ];
 
   // Dates that are fully disabled
-  const disabledDates = [new Date(2026, 5, 8), new Date(2026, 5, 9)];
+  const disabledDates = [new Date(2026, 6, 7), new Date(2026, 6, 31)];
 
   function convertHourToAmPM(hour: number) {
     let AMorPM = hour >= 12 ? "PM" : "AM";
@@ -53,12 +54,12 @@ export default function DataForm(props: {
   })?.length;
 
   function uncheckTime() {
-    const allInp = document.getElementsByClassName(id);
+    const allInp = document.getElementsByClassName(name);
     for (let i = 0; i < allInp.length; i++) {
       if ((allInp[i] as HTMLInputElement).type == "radio") {
         (allInp[i] as HTMLInputElement).checked = false;
         // set the parent value back nothing
-        onChange({ target: { id: id, value: "" } });
+        onChange({ target: { id: name, value: "" } });
       }
     }
   }
@@ -67,7 +68,8 @@ export default function DataForm(props: {
   while (
     disabledDates.filter((date) => {
       return date.getTime() == selectedDate.getTime();
-    }).length > 0
+    }).length > 0 ||
+    availableTimes[selectedDate.getDay()].length == 0
   ) {
     setDate(new Date(selectedDate.setDate(selectedDate.getDate() + 1)));
   }
@@ -128,10 +130,9 @@ export default function DataForm(props: {
                 }
                 return (
                   <input
-                    className={`btn ${id}`}
+                    className={`btn ${name}`}
                     type="radio"
-                    name={id}
-                    id={id}
+                    name={name}
                     key={index}
                     value={`${selectedDate?.toLocaleDateString()} at ${convertToReadableTime(timeslot)}`}
                     aria-label={convertToReadableTime(timeslot)}

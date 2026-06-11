@@ -1,6 +1,7 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import websiteData from "./websiteData";
 import DateForm from "./DateForm";
+import { redirect } from "next/navigation";
 
 const lessons = websiteData.lessons.map((a) => a.title);
 type LessonTitle = (typeof lessons)[number];
@@ -37,29 +38,34 @@ export default function Form() {
   function handleChange(e: { target: HTMLInputElement }) {
     // we force a deep copy here since we want re-render to trigger when sub attribute updated
     let copy: { [key: string]: string } = JSON.parse(JSON.stringify(answer));
-    copy[e.target.id as string] = e.target.value;
+    copy[e.target.name as string] = e.target.value;
     setAnswer(copy as FormInfo);
-    console.log(answer);
   }
+  // we track the answer so we can know when to render parts of the form
+  const [result, setResult] = useState("");
 
-  function submitForm(answer: FormInfo) {
-    console.log("submitting", answer);
-    //this doesnt do anything yet, TBD
-  }
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    const formData = new FormData(event.target);
+    formData.append("access_key", "9179e651-7dfc-480f-9a9b-9f490a824a4c");
 
-  useEffect(() => {
-    const form = document.getElementById("form");
-    form?.addEventListener("submit", (event: any) => {
-      submitForm(answer);
-      event.preventDefault();
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData,
     });
-  });
+
+    const data = await response.json();
+    setResult(data.success ? "Success!" : "Error");
+    data.success
+      ? redirect(`intake/submit?res=1`)
+      : redirect("intake/submit?res=0");
+  };
 
   return (
     <div>
       <form
         className="flex flex-col items-center gap-5 justify-center"
-        id="form"
+        onSubmit={onSubmit}
       >
         <div>
           <legend className="fieldset-legend  flex flex-col items-centerm-1">
@@ -69,7 +75,7 @@ export default function Form() {
             type="text"
             className="input"
             placeholder="Type here"
-            id="name"
+            name="name"
             onChange={handleChange}
             required
           />
@@ -84,7 +90,7 @@ export default function Form() {
               type="email"
               placeholder="mail@site.com"
               required
-              id="email"
+              name="email"
               onChange={handleChange}
             />
           </label>
@@ -98,7 +104,7 @@ export default function Form() {
           <textarea
             className="textarea h-24 w-full"
             placeholder="Have you used a machine before? What kind of projects have you done? ect"
-            id="experiance"
+            name="experiance"
             required
             onChange={handleChange as any}
           ></textarea>
@@ -114,7 +120,7 @@ export default function Form() {
           </div>
           <select
             className="select appearance-none"
-            id="lessonSelection"
+            name="lessonSelection"
             required
             onChange={handleChange as any}
           >
@@ -134,7 +140,7 @@ export default function Form() {
             Can you bring your own sewing machine?
           </legend>
           <select
-            id="hasSewingMachine"
+            name="hasSewingMachine"
             className="select"
             required
             onChange={handleChange as any}
@@ -157,9 +163,9 @@ export default function Form() {
             </p>
           </div>
           <select
-            id="isMasked"
             defaultValue="Pick a color"
             className="select"
+            name="isMasked"
             required
             onChange={handleChange as any}
           >
@@ -181,7 +187,7 @@ export default function Form() {
           </div>
           <select
             className="select"
-            id="pay"
+            name="pay"
             onChange={handleChange as any}
             required
           >
@@ -210,21 +216,24 @@ export default function Form() {
                 <DateForm
                   onChange={handleChange}
                   lessonType={answer.lessonSelection}
-                  id={"date1"}
+                  name={"date1"}
                 />
                 <DateForm
                   onChange={handleChange}
                   lessonType={answer.lessonSelection}
-                  id={"date2"}
+                  name={"date2"}
                 />
-                <p className="fieldset-legend">
-                  {answer.date1 && answer.date2
-                    ? `You've selected ${answer.date1} and ${answer.date2} as your tentive dates.`
-                    : null}
-                </p>
+                {answer.date1 && answer.date2 ? (
+                  <div className="badge badge-lg m-4 btn-custom ">
+                    You've selected {answer.date1} and {answer.date2} as your
+                    tentive lesson times.
+                  </div>
+                ) : null}
               </>
             ) : (
-              <p>Please Select a topic</p>
+              <div className="badge badge-lg m-4 btn-custom ">
+                Please select a topic for you lesson to see available timeslots.
+              </div>
             )}
           </div>
         </div>
@@ -235,7 +244,7 @@ export default function Form() {
           <textarea
             className="textarea h-24"
             placeholder="Saw a poster, from a friend, ect"
-            id="hearAbout"
+            name="hearAbout"
             onChange={handleChange as any}
           ></textarea>
         </div>
@@ -247,7 +256,7 @@ export default function Form() {
           <textarea
             className="textarea h-24 w-full "
             placeholder="Let me know any other concerns or questions here!"
-            id="notes"
+            name="notes"
             onChange={handleChange as any}
           ></textarea>
         </div>
@@ -256,6 +265,7 @@ export default function Form() {
           Let's do it
         </button>
       </form>
+      <p>the data: {result}</p>
     </div>
   );
 }

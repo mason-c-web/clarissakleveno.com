@@ -4,16 +4,37 @@ import Form from "../../ui/Form";
 export default function Page() {
   return (
     <div className="flex flex-col justify-center">
-      <h1 className={"text-6xl text-center m-3"}>Sewing Lessons Intake Form</h1>
-
-      <p className="py-4 text-center lg:max-w-7/10 m-auto ">
-        If you are interested in sewing lessons, please fill out this intake
-        form, and send you a follow up email in 2-3 business days. If everything
-        looks good, I will send you and invite for the time and place based on
-        your selection, and ask for payment. Payment must be completed before
-        the lesson. Feel free to email me directly if you have any questions
-        clarissakleveno@gmail.com
-      </p>
+      <h1 className={"text-6xl text-center m-3"}>
+        Sewing Lesson Interest Form
+      </h1>
+      <div className="flex">
+        <ul
+          className=" list-disc text-wrap
+"
+        >
+          <li>
+            {" "}
+            Submit the form below with your info and what you're interested in
+            learning. I should response in 1-5 business days.
+          </li>
+          <li>
+            If don't have any follow up questions, I will send you an invite
+            with the date and location based on your availablity and request
+            payment.
+          </li>
+          <li>
+            The requested amount must be paid before the lesson. (venmo, cash)
+          </li>
+          <li>
+            Lessons take place in a shared office space in Ballard. We have a
+            private room but other amenities are shared.
+          </li>
+          <li>
+            Feel free to email me directly if you have any questions at
+            clarissakleveno@gmail.com
+          </li>
+        </ul>
+      </div>
 
       <Form />
     </div>
