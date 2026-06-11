@@ -44,7 +44,7 @@ export default function Form() {
   // we track the answer so we can know when to render parts of the form
   const [result, setResult] = useState("");
 
-  const onSubmit = async (event) => {
+  const onSubmit = async (event: any) => {
     event.preventDefault();
     const formData = new FormData(event.target);
     formData.append("access_key", "9179e651-7dfc-480f-9a9b-9f490a824a4c");
