@@ -12,11 +12,11 @@ export default function Page() {
         className="lg:max-w-sm md:max-w-sm object-contain md:object-cover"
       />
       <p className="py-4 text-center lg:max-w-7/10 m-auto ">
-        I teach sewing lesson in the Ballard area of Seattle. I focus on
-        pratical alteration and repair skills. I've helped many people fix there
-        clothing and being able to alter my own clothing to fit my body has been
-        an important part of caring for myself. I hope you leave our session
-        feeling empowered to make clothing work for you.
+        I teach sewing lesson in share office space in Ballard. I focus on
+        practical alteration and repair skills. Being able to alter my own
+        clothing to fit my body has been a very healing process for me
+        personally. I hope you leave our session feeling empowered to take on
+        new projects and make clothing work for you.
       </p>
       <p className="py-4 text-center lg:max-w-7/10 m-auto ">
         My rate sliding scale from $30-$50 and hour, with most lessons being 2

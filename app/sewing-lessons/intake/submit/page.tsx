@@ -1,11 +1,11 @@
 "use client";
 import { useSearchParams } from "next/navigation";
+import { Suspense } from "react";
 
-export default function Page() {
+function Search() {
   const searchParams = useSearchParams();
 
   const res = searchParams.get("res");
-
   if (!res) {
     return (
       <p className="py-4 text-center lg:max-w-7/10 m-auto ">
@@ -28,4 +28,13 @@ export default function Page() {
       </div>
     );
   }
+}
+
+export default function Page() {
+  return (
+    // You could have a loading skeleton as the `fallback` too
+    <Suspense>
+      <Search />
+    </Suspense>
+  );
 }

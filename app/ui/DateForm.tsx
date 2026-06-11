@@ -75,7 +75,7 @@ export default function DataForm(props: {
   }
 
   return (
-    <div className="flex flex-row">
+    <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1">
       <div className="flex flex-col items-center ">
         <legend className="fieldset-legend">Select Day</legend>
         <DayPicker

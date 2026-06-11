@@ -226,15 +226,15 @@ export default function Form() {
                   name={"date2"}
                 />
                 {answer.date1 && answer.date2 ? (
-                  <div className="badge badge-lg m-4 btn-custom">
+                  <div className=" mt-4 btn-custom p-3 rounded-md">
                     You've selected {answer.date1} and {answer.date2} as your
                     tentive lesson times.
                   </div>
                 ) : null}
               </>
             ) : (
-              <div className="badge badge-lg m-4 btn-custom ">
-                Please select a topic for you lesson to see available timeslots.
+              <div className=" mt-3 btn-custom p-3 rounded-md">
+                Please select a lesson topic to see available timeslots.
               </div>
             )}
           </div>
