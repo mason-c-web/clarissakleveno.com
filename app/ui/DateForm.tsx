@@ -16,18 +16,18 @@ const availableTimes = [
   [], //saturday
 ];
 
-const threeDaysFromNow = new Date(Date.now() + 3 * 24 * 60 * 60 * 1000);
-const thirtyDaysFromNow = new Date(Date.now() + 33 * 24 * 60 * 60 * 1000);
+const startDateRange = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000); // 5 days from now
+const endDateRange = new Date(Date.now() + 35 * 24 * 60 * 60 * 1000); // 35 days from now
 
-threeDaysFromNow.setHours(0, 0, 0, 0);
-thirtyDaysFromNow.setHours(0, 0, 0, 0);
+startDateRange.setHours(0, 0, 0, 0);
+endDateRange.setHours(0, 0, 0, 0);
 
 export default function DataForm(props: {
   onChange: any;
   name: string;
   lessonType: string;
 }) {
-  const [selectedDate, setDate] = useState<Date>(threeDaysFromNow);
+  const [selectedDate, setDate] = useState<Date>(startDateRange);
 
   const { onChange, name, lessonType } = props;
 
@@ -39,7 +39,6 @@ export default function DataForm(props: {
 
   // Dates that are fully disabled
   const disabledDates = [new Date(2026, 6, 7), new Date(2026, 6, 31)];
-
   function convertHourToAmPM(hour: number) {
     let AMorPM = hour >= 12 ? "PM" : "AM";
     return (hour % 12 == 0 ? 12 : hour % 12) + ":00 " + AMorPM;
@@ -59,7 +58,7 @@ export default function DataForm(props: {
       if ((allInp[i] as HTMLInputElement).type == "radio") {
         (allInp[i] as HTMLInputElement).checked = false;
         // set the parent value back nothing
-        onChange({ target: { id: name, value: "" } });
+        onChange({ target: { name: name, value: "" } });
       }
     }
   }
@@ -92,8 +91,8 @@ export default function DataForm(props: {
             disabledDates,
             { dayOfWeek: [0, 6] },
             {
-              after: thirtyDaysFromNow,
-              before: threeDaysFromNow,
+              after: endDateRange,
+              before: startDateRange,
             },
           ]}
         />

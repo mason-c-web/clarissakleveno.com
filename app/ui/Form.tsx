@@ -9,30 +9,32 @@ type LessonTitle = (typeof lessons)[number];
 type FormInfo = {
   name: string;
   email: string;
+  age: string;
   experiance: string;
   lessonSelection: LessonTitle | "";
+  date1: string;
+  date2: string;
   hasSewingMachine: string;
   isMasked: string;
   pay: string;
   hearAbout: string;
   notes: string;
-  date1: string;
-  date2: string;
 };
 
 export default function Form() {
   const [answer, setAnswer] = useState({
     name: "",
     email: "",
+    age: "",
     experiance: "",
     lessonSelection: "",
+    date1: "",
+    date2: "",
     hasSewingMachine: "",
     isMasked: "",
     pay: "",
     hearAbout: "",
     notes: "",
-    date1: "",
-    date2: "",
   });
 
   function handleChange(e: { target: HTMLInputElement }) {
@@ -41,11 +43,13 @@ export default function Form() {
     copy[e.target.name as string] = e.target.value;
     setAnswer(copy as FormInfo);
   }
-  // we track the answer so we can know when to render parts of the form
-  const [result, setResult] = useState("");
+
+  const [loading, setLoading] = useState(false);
 
   const onSubmit = async (event: any) => {
     event.preventDefault();
+    setLoading(true);
+
     const formData = new FormData(event.target);
     formData.append("access_key", "9179e651-7dfc-480f-9a9b-9f490a824a4c");
 
@@ -53,9 +57,7 @@ export default function Form() {
       method: "POST",
       body: formData,
     });
-
     const data = await response.json();
-    setResult(data.success ? "Success!" : "Error");
     data.success
       ? redirect(`intake/submit?res=1`)
       : redirect("intake/submit?res=0");
@@ -67,6 +69,11 @@ export default function Form() {
         className="flex flex-col items-center gap-5 justify-center"
         onSubmit={onSubmit}
       >
+        <legend className="text-xl flex flex-col items-centerm-1">
+          About You
+        </legend>
+        <hr className="border border-custom  w-100" />
+
         <div>
           <legend className="fieldset-legend  flex flex-col items-centerm-1">
             What is your name?
@@ -78,6 +85,7 @@ export default function Form() {
             name="name"
             onChange={handleChange}
             required
+            maxLength={30}
           />
         </div>
 
@@ -92,9 +100,28 @@ export default function Form() {
               required
               name="email"
               onChange={handleChange}
+              maxLength={30}
             />
           </label>
           <div className="validator-hint hidden">Enter valid email address</div>
+        </div>
+
+        <div className="flex flex-col items-center gap-2">
+          <legend className="fieldset-legend m-1 ">
+            Is the person this lesson is scheduled for over 18 years of age?
+          </legend>
+          <select
+            name="age"
+            className="select "
+            required
+            onChange={handleChange as any}
+          >
+            <option key={1} value={""}>
+              Select Option
+            </option>
+            <option key={2}>Yes, they are over 18.</option>
+            <option key={3}>No, they are not currently over 18.</option>
+          </select>
         </div>
 
         <div>
@@ -107,8 +134,15 @@ export default function Form() {
             name="experiance"
             required
             onChange={handleChange as any}
+            maxLength={300}
           ></textarea>
         </div>
+
+        <hr className="border border-custom  w-100" />
+        <legend className="text-xl flex flex-col items-centerm-1">
+          Your Lesson
+        </legend>
+        <hr className="border border-custom  w-100" />
 
         <div className="flex flex-col items-center gap-2 ">
           <div className="flex flex-col items-center gap-2 ">
@@ -134,6 +168,46 @@ export default function Form() {
               );
             })}
           </select>
+        </div>
+
+        <div>
+          <div className="flex flex-col items-center">
+            <legend className="fieldset-legend">
+              Select two tenitive dates and times for the lesson.
+            </legend>
+            <p className="label text-wrap">
+              This does not guarantee a slot. Once I verify the date and time is
+              available at the share office space, I will send you a follow up
+              email with an invite.
+            </p>
+          </div>
+
+          <div className="flex flex-col items-center">
+            {answer.lessonSelection ? (
+              <>
+                <DateForm
+                  onChange={handleChange}
+                  lessonType={answer.lessonSelection}
+                  name={"date1"}
+                />
+                <DateForm
+                  onChange={handleChange}
+                  lessonType={answer.lessonSelection}
+                  name={"date2"}
+                />
+                {answer.date1 && answer.date2 ? (
+                  <div className=" mt-4 btn-custom p-3 rounded-md">
+                    You've selected {answer.date1} and {answer.date2} as your
+                    tentive lesson times.
+                  </div>
+                ) : null}
+              </>
+            ) : (
+              <div className=" mt-3 btn-custom p-3 rounded-md">
+                Please select a lesson topic to see available timeslots.
+              </div>
+            )}
+          </div>
         </div>
 
         <div>
@@ -193,52 +267,19 @@ export default function Form() {
             onChange={handleChange as any}
             required
           >
-            <option>Select an option</option>
+            <option value="">Select an option</option>
             <option>$30 an hour (discounted)</option>
             <option>$40 an hour (standard)</option>
             <option>$50 an hour (pay it forward)</option>
           </select>
         </div>
 
-        <div>
-          <div className="flex flex-col items-center">
-            <legend className="fieldset-legend">
-              Select two tenitive dates and times for the lesson.
-            </legend>
-            <p className="label text-wrap">
-              This does not guarantee a slot. Once I verify the date and time is
-              available at the share office space, I will send you a follow up
-              email with an invite.
-            </p>
-          </div>
+        <hr className="border border-custom  w-100" />
+        <legend className="text-xl flex flex-col items-centerm-1">
+          Other Notes
+        </legend>
+        <hr className="border border-custom  w-100" />
 
-          <div className="flex flex-col items-center">
-            {answer.lessonSelection ? (
-              <>
-                <DateForm
-                  onChange={handleChange}
-                  lessonType={answer.lessonSelection}
-                  name={"date1"}
-                />
-                <DateForm
-                  onChange={handleChange}
-                  lessonType={answer.lessonSelection}
-                  name={"date2"}
-                />
-                {answer.date1 && answer.date2 ? (
-                  <div className=" mt-4 btn-custom p-3 rounded-md">
-                    You've selected {answer.date1} and {answer.date2} as your
-                    tentive lesson times.
-                  </div>
-                ) : null}
-              </>
-            ) : (
-              <div className=" mt-3 btn-custom p-3 rounded-md">
-                Please select a lesson topic to see available timeslots.
-              </div>
-            )}
-          </div>
-        </div>
         <div className=" flex flex-col items-center w-full">
           <legend className="fieldset-legend m-1">
             How did you hear about this?
@@ -247,6 +288,7 @@ export default function Form() {
             className="textarea h-24"
             placeholder="Saw a poster, from a friend, ect"
             name="hearAbout"
+            maxLength={300}
             onChange={handleChange as any}
           ></textarea>
         </div>
@@ -259,12 +301,18 @@ export default function Form() {
             className="textarea h-24 w-full "
             placeholder="Let me know any other concerns or questions here!"
             name="notes"
+            maxLength={300}
             onChange={handleChange as any}
           ></textarea>
         </div>
 
-        <button className="btn btn-custom" id="submit" type="submit">
-          Let's do it
+        <button
+          className="btn btn-custom"
+          id="submit"
+          type="submit"
+          disabled={loading}
+        >
+          Submit
         </button>
       </form>
     </div>

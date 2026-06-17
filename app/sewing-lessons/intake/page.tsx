@@ -9,6 +9,7 @@ export default function Page() {
       </h1>
       <div className="flex">
         <ul className=" list-disc text-wrap lg:max-w-7/10 m-auto p-3">
+          <li>You must be 18 years or older to attend a lesson. </li>
           <li>
             {" "}
             Submit the form below with your info and what you're interested in
@@ -19,9 +20,7 @@ export default function Page() {
             with the date and location based on your availablity and request
             payment.
           </li>
-          <li>
-            The requested amount must be paid before the lesson. (venmo, cash)
-          </li>
+          <li>The requested amount must be paid before the lesson.</li>
           <li>
             Lessons take place in a shared office space in Ballard. We have a
             private room but other amenities are shared.
