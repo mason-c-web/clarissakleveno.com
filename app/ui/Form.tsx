@@ -2,6 +2,7 @@ import { useState } from "react";
 import websiteData from "./websiteData";
 import DateForm from "./DateForm";
 import { redirect } from "next/navigation";
+import { Link } from "./Link";
 
 const lessons = websiteData.lessons.map((a) => a.title);
 type LessonTitle = (typeof lessons)[number];
@@ -149,9 +150,12 @@ export default function Form() {
             <legend className="fieldset-legend ">
               What topic would you like to take?
             </legend>
-            <p className="label text-wrap">
-              You can see a list of all the topics on the previous page.
-            </p>
+            <div className="display-inline">
+              <p className="label text-wrap">
+                You can see a list of all the topics on the
+              </p>{" "}
+              <Link href="/sewing-lessons" title={" previous page."} />
+            </div>
           </div>
           <select
             className="select appearance-none"
@@ -173,11 +177,11 @@ export default function Form() {
         <div>
           <div className="flex flex-col items-center">
             <legend className="fieldset-legend">
-              Select two tenitive dates and times for the lesson.
+              Select two tentative dates and times for the lesson.
             </legend>
             <p className="label text-wrap">
               This does not guarantee a slot. Once I verify the date and time is
-              available at the share office space, I will send you a follow up
+              available at the shared office space, I will send you a follow up
               email with an invite.
             </p>
           </div>
@@ -198,7 +202,7 @@ export default function Form() {
                 {answer.date1 && answer.date2 ? (
                   <div className=" mt-4 btn-custom p-3 rounded-md">
                     You've selected {answer.date1} and {answer.date2} as your
-                    tentive lesson times.
+                    tentative lesson times.
                   </div>
                 ) : null}
               </>
@@ -234,8 +238,8 @@ export default function Form() {
               Would you like this lesson to be masked?
             </legend>
             <p className="label text-wrap">
-              I might choose to wear a mask regardless, espically during flu
-              season, but wear when requested.
+              I might choose to wear a mask regardless, especially during flu
+              season, but will when requested.
             </p>
           </div>
           <select
@@ -257,8 +261,8 @@ export default function Form() {
               What would you like to pay?
             </legend>
             <p className="label text-wrap">
-              I offer a sliding scale for pay accessiblity. This does not effect
-              you lesson or scheduling, this is just for my records.
+              I offer a sliding scale for pay accessiblity. This does not affect
+              your lesson or scheduling; this is just for my records.
             </p>
           </div>
           <select
@@ -295,7 +299,7 @@ export default function Form() {
 
         <div className="flex flex-col items-center">
           <legend className="fieldset-legend m-1">
-            Any other notes for me, or other request in accommodations?
+            Any other notes for me, or other request or accommodations?
           </legend>
           <textarea
             className="textarea h-24 w-full "
