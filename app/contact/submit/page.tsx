@@ -1,6 +1,6 @@
 "use client";
 import { Suspense } from "react";
-import { HandleSubmit } from "../../../ui/HandleSubmit";
+import { HandleSubmit } from "../../ui/HandleSubmit";
 
 export default function Page() {
   return (

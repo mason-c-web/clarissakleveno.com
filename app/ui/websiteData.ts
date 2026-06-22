@@ -10,7 +10,6 @@ export type ZineData ={
   title: string ;
   coverImage: string;
   readable?: string
-  printable?: string;
 }
 
 export type ArtData ={
@@ -36,13 +35,23 @@ const websiteData:WebsiteData = {
     },
 
     {
-      title: "Work",
-      path:"/work"
+      title: "Artwork",
+      path:"/artwork"
     
     },
 
+
     { title: "Sewing Lessons",
     path:'/sewing-lessons'
+    },
+   {
+      title: "Zines",
+      path:"/zines"
+    
+    },
+    
+    { title: "Contact",
+    path:'/contact'
     }
 
   ],
@@ -50,21 +59,18 @@ const websiteData:WebsiteData = {
     { 
       title: "Pengiuns and Self-Compassion",
       coverImage: "/images/zines/pengiunscover.png",
-      printable:"downloads/pengiunsPrintable.pdf",
       readable:"downloads/pengiunsReadable.pdf"
 
     },
-      { 
-      title: "Ode to Sex Toys",
-      coverImage: "/images/zines/sextoyscover.png",
-      printable:"downloads/sextoysPrintable.pdf",
-      readable:"downloads/sextoysReadable.pdf"
+    //   { 
+    //   title: "Ode to Sex Toys",
+    //   coverImage: "/images/zines/sextoyscover.png",
+    //   readable:"downloads/sextoysReadable.pdf"
 
-    },
+    // },
       { 
-      title: "Clarissa's Guide to non-alcholic Alchol",
+      title: "Clarissa's Guide to Non-alcoholic Alcohol",
       coverImage: "/images/zines/sobercover.png",
-      printable:"downloads/soberPrintable.pdf",
       readable:"downloads/soberReadable.pdf"
 
     },

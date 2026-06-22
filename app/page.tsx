@@ -17,8 +17,7 @@ export default function Page() {
         Hello, I’m Clarissa, I'm a queer fat artist living in the Seattle area.
         I create bold colorful work ranging from murals, to event posters. I am
         also passionate about mending and repairing clothing, and teaching
-        people how to sew.{" "}
-        <Link href="mailto:clarissakleveno@gmail.com" title={"Email me!"} />
+        people how to sew.
       </p>
       <hr className="border border-custom c mb-3" />
 

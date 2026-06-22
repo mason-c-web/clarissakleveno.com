@@ -11,12 +11,7 @@ function ZineListItem(zine: ZineData) {
         className={""}
       />
       <div className="flex flex-col justify-center gap-3 m-5">
-        <Button href={zine.readable} title="View Readable Version" />
-        <Button
-          href={zine.printable}
-          title=" Download Printable Version"
-          download={zine.title}
-        />
+        <Button href={zine.readable} title="View Online" />
       </div>
     </div>
   );
