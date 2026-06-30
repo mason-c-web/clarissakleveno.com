@@ -110,10 +110,10 @@ const websiteData:WebsiteData = {
     }
   ],
   lessons:[
-       {title:"Basic Sewing Machine Setup", 
-      learn:["Help setting up a new machine", "Trouble shooting tool for a machine that is having issues."],  
-      bring:["Your sewing machine"], 
-      length:1},
+      //  {title:"Basic Sewing Machine Setup", 
+      // learn:["Help setting up a new machine", "Trouble shooting tool for a machine that is having issues."],  
+      // bring:["Your sewing machine"], 
+      // length:1},
     {title:"Beginner Sewing Machine Intro & Project", 
       learn:["How the sewing machine works","Different stitches and what they are used for","How to set the machine for different fabrics","How to drive the machine","Construct a pratice project build confidence"],  
       bring:["Your sewing machine, otherwise you can use the one provided"], 
