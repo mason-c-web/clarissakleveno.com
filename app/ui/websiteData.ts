@@ -66,7 +66,6 @@ const websiteData:WebsiteData = {
     //   title: "Ode to Sex Toys",
     //   coverImage: "/images/zines/sextoyscover.png",
     //   readable:"downloads/sextoysReadable.pdf"
-
     // },
       { 
       title: "Clarissa's Guide to Non-alcoholic Alcohol",
@@ -74,7 +73,11 @@ const websiteData:WebsiteData = {
       readable:"downloads/soberReadable.pdf"
 
     },
-   
+      { 
+      title: "Reassurance for the Weary Heart",
+      coverImage: "/images/zines/wearyhearts.png",
+      readable:"downloads/wearyheartsReadable.pdf"
+    },
   ],
      art:[
 

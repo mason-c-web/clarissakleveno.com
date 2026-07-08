@@ -38,7 +38,20 @@ export default function DataForm(props: {
   ];
 
   // Dates that are fully disabled
-  const disabledDates = [new Date(2026, 6, 7), new Date(2026, 6, 31)];
+  // Month count starts a index 0.... :C
+  const disabledDates = [
+    new Date(2026, 6, 7),
+    new Date(2026, 6, 13),
+    new Date(2026, 6, 14),
+    new Date(2026, 6, 15),
+    new Date(2026, 6, 16),
+    new Date(2026, 6, 17),
+    new Date(2026, 6, 21),
+    new Date(2026, 6, 31),
+    new Date(2026, 7, 10),
+    new Date(2026, 7, 11),
+    new Date(2026, 7, 12),
+  ];
   function convertHourToAmPM(hour: number) {
     let AMorPM = hour >= 12 ? "PM" : "AM";
     return (hour % 12 == 0 ? 12 : hour % 12) + ":00 " + AMorPM;
