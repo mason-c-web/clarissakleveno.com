@@ -78,6 +78,11 @@ const websiteData:WebsiteData = {
       coverImage: "/images/zines/wearyhearts.png",
       readable:"downloads/wearyheartsReadable.pdf"
     },
+        { 
+      title: "Body Liberation is for Everyone",
+      coverImage: "/images/zines/bodylibcover.png",
+      readable:"downloads/bodylibread.pdf"
+    },
   ],
      art:[
 
