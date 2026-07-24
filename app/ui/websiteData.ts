@@ -39,17 +39,15 @@ const websiteData:WebsiteData = {
       path:"/artwork"
     
     },
-
-
-    { title: "Sewing Lessons",
-    path:'/sewing-lessons'
-    },
+   
    {
       title: "Zines",
       path:"/zines"
     
     },
-    
+     { title: "Sewing Lessons",
+    path:'/sewing-lessons'
+    },
     { title: "Contact",
     path:'/contact'
     }
@@ -82,6 +80,16 @@ const websiteData:WebsiteData = {
       title: "Body Liberation is for Everyone",
       coverImage: "/images/zines/bodylibcover.png",
       readable:"downloads/bodylibread.pdf"
+    },
+        { 
+      title: "Quilt Star Identification Guide",
+      coverImage: "/images/zines/quiltblockscover.png",
+      readable:"downloads/quiltstarsReadable.pdf"
+    },
+        { 
+      title: "How to Sew a Mini Totebag",
+      coverImage: "/images/zines/totebagcover.png",
+      readable:"downloads/totebagReadable.pdf"
     },
   ],
      art:[
