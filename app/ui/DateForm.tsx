@@ -33,24 +33,34 @@ export default function DataForm(props: {
 
   // Dates that only have specific times disabled
   const disabledDatetimes = [
-    { date: new Date(2026, 5, 16), time: [12, 13, 14, 15, 16] },
-    { date: new Date(2026, 5, 18), time: [12, 13, 14, 15, 16] },
+    { date: new Date(2026, 8, 2), time: [12, 13, 14, 15, 16] },
+    { date: new Date(2026, 8, 9), time: [12, 13, 14, 15, 16] },
+    { date: new Date(2026, 8, 16), time: [12, 13, 14, 15, 16] },
+    { date: new Date(2026, 8, 23), time: [12, 13, 14, 15, 16] },
+    { date: new Date(2026, 8, 30), time: [12, 13, 14, 15, 16] },
+    { date: new Date(2026, 8, 15), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 8, 17), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 8, 22), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 8, 29), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 9, 1), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 9, 6), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 9, 8), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 9, 13), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 9, 15), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 9, 20), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 9, 22), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 9, 27), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 9, 29), time: [13, 14, 15, 16] },
   ];
 
   // Dates that are fully disabled
   // Month count starts a index 0.... :C
   const disabledDates = [
-    new Date(2026, 6, 7),
-    new Date(2026, 6, 13),
-    new Date(2026, 6, 14),
-    new Date(2026, 6, 15),
-    new Date(2026, 6, 16),
-    new Date(2026, 6, 17),
-    new Date(2026, 6, 21),
-    new Date(2026, 6, 31),
-    new Date(2026, 7, 10),
-    new Date(2026, 7, 11),
-    new Date(2026, 7, 12),
+    ,
+    new Date(2026, 7, 25),
+    new Date(2026, 7, 26),
+    new Date(2026, 7, 27),
+    new Date(2026, 7, 28),
   ];
   function convertHourToAmPM(hour: number) {
     let AMorPM = hour >= 12 ? "PM" : "AM";
