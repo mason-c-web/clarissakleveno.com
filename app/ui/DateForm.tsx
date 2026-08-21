@@ -56,7 +56,6 @@ export default function DataForm(props: {
   // Dates that are fully disabled
   // Month count starts a index 0.... :C
   const disabledDates = [
-    ,
     new Date(2026, 7, 25),
     new Date(2026, 7, 26),
     new Date(2026, 7, 27),
