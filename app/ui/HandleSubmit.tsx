@@ -15,7 +15,7 @@ export function HandleSubmit() {
     return (
       <div className="flex flex-col justify-center">
         <h1 className={"text-6xl text-center m-3"}>
-          {res == "1" ? "Form Submitted Sucessfully" : "Form Failed to Submit"}
+          {res == "1" ? "Form Submitted Successfully" : "Form Failed to Submit"}
         </h1>
 
         <p className="py-4 text-center lg:max-w-7/10 m-auto ">

@@ -16,8 +16,8 @@ const availableTimes = [
   [], //saturday
 ];
 
-const startDateRange = new Date(Date.now() + 5 * 24 * 60 * 60 * 1000); // 5 days from now
-const endDateRange = new Date(Date.now() + 35 * 24 * 60 * 60 * 1000); // 35 days from now
+const startDateRange = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days from now
+const endDateRange = new Date(Date.now() + 37 * 24 * 60 * 60 * 1000); // 37 days from now
 
 startDateRange.setHours(0, 0, 0, 0);
 endDateRange.setHours(0, 0, 0, 0);
@@ -38,19 +38,9 @@ export default function DataForm(props: {
     { date: new Date(2026, 8, 16), time: [12, 13, 14, 15, 16] },
     { date: new Date(2026, 8, 23), time: [12, 13, 14, 15, 16] },
     { date: new Date(2026, 8, 30), time: [12, 13, 14, 15, 16] },
-    { date: new Date(2026, 8, 15), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 8, 17), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 8, 22), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 8, 29), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 9, 1), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 9, 6), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 9, 8), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 9, 13), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 9, 15), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 9, 20), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 9, 22), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 9, 27), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 9, 29), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 8, 11), time: [14, 15, 16] },
+    { date: new Date(2026, 9, 2), time: [10, 11, 12, 13] },
+    { date: new Date(2026, 8, 10), time: [10, 11, 12, 13] },
   ];
 
   // Dates that are fully disabled
@@ -60,6 +50,14 @@ export default function DataForm(props: {
     new Date(2026, 7, 26),
     new Date(2026, 7, 27),
     new Date(2026, 7, 28),
+    new Date(2026, 7, 10),
+    new Date(2026, 7, 11),
+    new Date(2026, 7, 12),
+
+    // bank holidays
+    new Date(2026, 8, 12),
+    new Date(2026, 10, 11),
+    new Date(2026, 10, 26),
   ];
   function convertHourToAmPM(hour: number) {
     let AMorPM = hour >= 12 ? "PM" : "AM";
