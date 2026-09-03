@@ -20,7 +20,7 @@ export function HandleSubmit() {
 
         <p className="py-4 text-center lg:max-w-7/10 m-auto ">
           {res == "1"
-            ? "I should be able to reply to your inquire in 1-5 business days."
+            ? "I should be able to reply to your inquiry in 1-5 business days."
             : "Something went wrong and I wasn't able to get your request. If this keeps happening please contact me."}
         </p>
       </div>

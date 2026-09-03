@@ -7,7 +7,7 @@ export default function Page() {
     <div className="flex flex-col items-center">
       <h1 className={"text-6xl text-center m-3"}>Sewing Lessons</h1>
       <img
-        alt={"eee"}
+        alt={"drawing of a sewing machine"}
         src={"/images/sewingmachine.png"}
         className="lg:max-w-sm md:max-w-sm object-contain md:object-cover"
       />
@@ -21,7 +21,7 @@ export default function Page() {
         session feeling empowered to take on new projects and make clothing work
         for you.
       </p>
-      <p className="py-4 text-center lg:max-w-7/10 m-auto ">
+      <p className="py-4 text-center lg:max-w-7/10 m-auto mb-5 ">
         I teach sewing lesson in share office space in Ballard. My rate sliding
         scale from $30-$50 and hour, with most lessons being 2 hours. Lessons
         slots are only during weekdays 9am-5pm. The different topics I teach are

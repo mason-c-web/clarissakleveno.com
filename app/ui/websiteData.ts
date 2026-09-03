@@ -24,6 +24,7 @@ export type LessonData={
   title: string;
   learn: string[];
   bring: string[];
+  requiresGarments: boolean;
   length: number;
 }
 
@@ -131,13 +132,13 @@ const websiteData:WebsiteData = {
     {title:"Sewing Machine for Absolute Beginners", 
       learn:["How the sewing machine works","Different stitches and what they are used for","How to set the machine for different fabrics","How to drive the machine","Construct a mini tote bag w/ the provided kit as your first project to build confidence"],  
       bring:["Your sewing machine, otherwise you can use the one provided"], 
-      length:2},
+      length:2, requiresGarments: false},
   {title:"How To Hem Your Own Garments", 
-    bring:["Your sewing machine, otherwise you can use the one provided.", "1-4 garments that you would like create a new hem on"], 
+    bring:["Your sewing machine, otherwise you can use the one provided.", "4-6 garments that you would like create a new hem on"], 
     learn:["How to create a new hem on pants, skirts, dress or tops",
               "Techiques for different types of fabrics",
               "How to try on and properly measure new length on garments"],
-               length:2},
+               length:2, requiresGarments: true},
     // {title:"Waist Adjustments", 
     // bring:["Your sewing machine, otherwise you can use the one provided.","1-4 garments that you would like adjust the waist on"], 
     // learn:["How take in the waist on pants or skirts",
@@ -151,12 +152,12 @@ const websiteData:WebsiteData = {
     //           "How to expand a too small pocket in an existing garment"],
     //            length:2},
     {title:"How To Repair Your Own Garments", 
-    bring:["Your sewing machine, otherwise you can use the one provided.","1-4 garments that you would like to repair.", "Any patch fabric matching the garment if avaialble"], 
+    bring:["Your sewing machine, otherwise you can use the one provided.","4-6 garments that you would like to repair.", "Any patch fabric matching the garment if avaialble"], 
     learn:["How to patch a hole in a existing garment",
               "How to fix a ripped seam",
               "How to reenforced pant crotches"
               ],
-               length:2},
+               length:2, requiresGarments: true},
     // {title:"Zippers", 
     // bring:["Your sewing machine, otherwise you can use the one provided."], 
     // learn:["Different types of zippers and their purposes",
@@ -170,7 +171,7 @@ const websiteData:WebsiteData = {
               "Assistance on construction or new techniques",
               "Guidance getting started with a project, or assistance if you stuck on the next step"
              ],
-               length:2}
+               length:2, requiresGarments: false}
    ],
   websiteTitle: "Clarissa Kleveno",
 };

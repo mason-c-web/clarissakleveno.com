@@ -4,8 +4,14 @@ import DateForm from "./DateForm";
 import { redirect } from "next/navigation";
 import { Link } from "./Link";
 
-const lessons = websiteData.lessons.map((a) => a.title);
-type LessonTitle = (typeof lessons)[number];
+const lessonsTitles = websiteData.lessons.map((a) => a.title);
+const lessonsGarmentRequirements = websiteData.lessons.map((a) => {
+  if (a.requiresGarments) {
+    return a.title;
+  }
+});
+
+type LessonTitle = (typeof lessonsTitles)[number];
 
 type FormInfo = {
   name: string;
@@ -13,6 +19,8 @@ type FormInfo = {
   age: string;
   experiance: string;
   lessonSelection: LessonTitle | "";
+  garmentDescription: "";
+  projectHelpDescription: "";
   date1: string;
   date2: string;
   hasSewingMachine: string;
@@ -29,6 +37,8 @@ export default function Form() {
     age: "",
     experiance: "",
     lessonSelection: "",
+    garmentDescription: "",
+    projectHelpDescription: "",
     date1: "",
     date2: "",
     hasSewingMachine: "",
@@ -63,7 +73,6 @@ export default function Form() {
       ? redirect(`intake/submit?res=1`)
       : redirect("intake/submit?res=0");
   };
-
   return (
     <div>
       <form
@@ -74,7 +83,6 @@ export default function Form() {
           About You
         </legend>
         <hr className="border border-custom  w-100" />
-
         <div>
           <legend className="fieldset-legend  flex flex-col items-centerm-1">
             What is your name?
@@ -89,7 +97,6 @@ export default function Form() {
             maxLength={30}
           />
         </div>
-
         <div>
           <legend className="fieldset-legend flex flex-col items-centerm-1">
             What is your email?
@@ -106,7 +113,6 @@ export default function Form() {
           </label>
           <div className="validator-hint hidden">Enter valid email address</div>
         </div>
-
         <div className="flex flex-col items-center gap-2">
           <legend className="fieldset-legend m-1 ">
             Is the person this lesson is scheduled for over 18 years of age?
@@ -124,27 +130,24 @@ export default function Form() {
             <option key={3}>No, they are not currently over 18.</option>
           </select>
         </div>
-
         <div>
           <legend className="fieldset-legend m-1">
             Describe your previous sewing experiance.
           </legend>
           <textarea
             className="textarea h-24 w-full"
-            placeholder="Have you used a machine before? What kind of projects have you done? ect"
+            placeholder="Comfortable with sewing machine. Sewn a totebag and a few skirts."
             name="experiance"
             required
             onChange={handleChange as any}
             maxLength={300}
           ></textarea>
         </div>
-
         <hr className="border border-custom  w-100" />
         <legend className="text-xl flex flex-col items-centerm-1">
           Your Lesson
         </legend>
         <hr className="border border-custom  w-100" />
-
         <div className="flex flex-col items-center gap-2 ">
           <div className="flex flex-col items-center gap-2 ">
             <legend className="fieldset-legend ">
@@ -164,7 +167,7 @@ export default function Form() {
             onChange={handleChange as any}
           >
             <option value="">Select a topic</option>
-            {lessons.map((title, index) => {
+            {lessonsTitles.map((title, index) => {
               return (
                 <option key={index} value={title}>
                   {title}
@@ -173,6 +176,45 @@ export default function Form() {
             })}
           </select>
         </div>
+
+        {lessonsGarmentRequirements.includes(answer.lessonSelection) ? (
+          <div className="flex flex-col items-center">
+            <legend className="fieldset-legend m-1 ">
+              Describe the garments you are bringing, and their repair or
+              alteration needs.
+            </legend>
+            <p className="label text-wrap max-w-200 mb-5">
+              In this lesson we will work with your own garment from home. I
+              recommend to bring 4-6 with no guarantee we will get to
+              everything. Knowing what your bringing helps me know if we will
+              need addtional supplies.
+            </p>
+            <textarea
+              className="textarea h-24 w-full"
+              placeholder="1 pair of jeans to hem, 4 cotton t-shirts to repair, and a skirt"
+              name="garmentDescription"
+              required
+              onChange={handleChange as any}
+              maxLength={300}
+            ></textarea>
+          </div>
+        ) : null}
+
+        {answer.lessonSelection == "Project Help & Troubleshooting" ? (
+          <div>
+            <legend className="fieldset-legend m-1">
+              Describe your project, and what you need assistance with.
+            </legend>
+            <textarea
+              className="textarea h-24 w-full"
+              placeholder="I want to sew curtains, but I have no idea how to get started; I'm half way through a pattern, but need help with the binding;"
+              name="projectHelpDescription"
+              required
+              onChange={handleChange as any}
+              maxLength={300}
+            ></textarea>
+          </div>
+        ) : null}
 
         <div>
           <div className="flex flex-col items-center">
@@ -201,8 +243,8 @@ export default function Form() {
                 />
                 {answer.date1 && answer.date2 ? (
                   <div className=" mt-4 btn-custom p-3 rounded-md">
-                    You've selected {answer.date1} and {answer.date2} as your
-                    tentative lesson times.
+                    You've selected <b>{answer.date1}</b> and{" "}
+                    <b>{answer.date2}</b> as your tentative lesson times.
                   </div>
                 ) : null}
               </>
@@ -213,7 +255,6 @@ export default function Form() {
             )}
           </div>
         </div>
-
         <div>
           <legend className="fieldset-legend m-1">
             Can you bring your own sewing machine?
@@ -231,7 +272,6 @@ export default function Form() {
             <option key={3}>No, I will use the one provided.</option>
           </select>
         </div>
-
         <div className="flex flex-col items-center gap-2">
           <div className="flex flex-col items-center gap-2">
             <legend className="fieldset-legend">
@@ -254,7 +294,6 @@ export default function Form() {
             <option>No, I have no preferance.</option>
           </select>
         </div>
-
         <div className="flex flex-col items-center gap-2">
           <div className="flex flex-col items-center gap-2">
             <legend className="fieldset-legend">
@@ -272,18 +311,24 @@ export default function Form() {
             required
           >
             <option value="">Select an option</option>
-            <option>$30 an hour (discounted)</option>
-            <option>$40 an hour (standard)</option>
-            <option>$50 an hour (pay it forward)</option>
+            <option value={30}>$30 an hour (discounted)</option>
+            <option value={40}>$40 an hour (standard)</option>
+            <option value={50}>$50 an hour (pay it forward)</option>
           </select>
         </div>
+
+        {answer.pay ? (
+          <div className=" mt-3 btn-custom p-3 rounded-md">
+            The cost for this (2) hour lesson will be{" "}
+            <b>${2 * Number(answer.pay)}</b>
+          </div>
+        ) : null}
 
         <hr className="border border-custom  w-100" />
         <legend className="text-xl flex flex-col items-centerm-1">
           Other Notes
         </legend>
         <hr className="border border-custom  w-100" />
-
         <div className=" flex flex-col items-center w-full">
           <legend className="fieldset-legend m-1">
             How did you hear about this?
@@ -296,7 +341,6 @@ export default function Form() {
             onChange={handleChange as any}
           ></textarea>
         </div>
-
         <div className="flex flex-col items-center">
           <legend className="fieldset-legend m-1">
             Any other notes for me, or other request or accommodations?
@@ -309,7 +353,6 @@ export default function Form() {
             onChange={handleChange as any}
           ></textarea>
         </div>
-
         <button
           className="btn btn-custom"
           id="submit"
