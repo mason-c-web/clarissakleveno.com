@@ -12,17 +12,20 @@ export default function Page() {
         className="lg:max-w-sm md:max-w-sm object-contain md:object-cover"
       />
       <p className="py-4 text-center lg:max-w-7/10 m-auto ">
-        I teach sewing lesson in share office space in Ballard. I focus on
-        practical alteration and repair skills. Being able to alter my own
-        clothing to fit my body has been a very healing process for me
-        personally. I hope you leave our session feeling empowered to take on
-        new projects and make clothing work for you.
+        I'm been teaching people how to sew for about the past three year, and
+        sewing for over ten. I currently mostly focus on clothing alteration and
+        repair skills, but have sewn everything from quilts, to curtains, to dog
+        jackets. Sewing is such an empowering skill, and love seeing when it
+        clicks with students. Being able to alter my own clothing to fit my body
+        has been a very healing process for me personally. I hope you leave our
+        session feeling empowered to take on new projects and make clothing work
+        for you.
       </p>
       <p className="py-4 text-center lg:max-w-7/10 m-auto ">
-        My rate sliding scale from $30-$50 and hour, with most lessons being 2
-        hours. Lessons slots are only during weekdays 9am-5pm. The different
-        topics I teach are available below. If you are interested fill out the
-        form to get started.
+        I teach sewing lesson in share office space in Ballard. My rate sliding
+        scale from $30-$50 and hour, with most lessons being 2 hours. Lessons
+        slots are only during weekdays 9am-5pm. The different topics I teach are
+        available below. If you are interested fill out the form to get started.
       </p>
 
       <Button
