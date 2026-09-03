@@ -1,6 +1,7 @@
 "use client";
 
 import Form from "../../ui/Form";
+import { Link } from "../../ui/Link";
 export default function Page() {
   return (
     <div className="flex flex-col justify-center">
@@ -23,11 +24,13 @@ export default function Page() {
           <li>The requested amount must be paid before the lesson.</li>
           <li>
             Lessons take place in a shared office space in Ballard. We have a
-            private room but other amenities are shared.
+            private room but other amenities are shared. There is access to a
+            ADA bathroom. No stairs to enter the building or room.
           </li>
           <li>
-            Feel free to email me directly if you have any questions at
-            clarissakleveno@gmail.com
+            Feel free to reach me through my{" "}
+            <Link href="/contact" title={"contact form"} /> if you have any
+            questions.
           </li>
         </ul>
       </div>
