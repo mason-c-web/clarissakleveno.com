@@ -39,6 +39,8 @@ export default function DataForm(props: {
     { date: new Date(2026, 8, 23), time: [12, 13, 14, 15, 16] },
     { date: new Date(2026, 8, 30), time: [12, 13, 14, 15, 16] },
     { date: new Date(2026, 8, 11), time: [14, 15, 16] },
+    { date: new Date(2026, 8, 18), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 8, 14), time: [12, 13, 14] },
     { date: new Date(2026, 9, 2), time: [10, 11, 12, 13] },
     { date: new Date(2026, 8, 10), time: [10, 11, 12, 13] },
   ];
