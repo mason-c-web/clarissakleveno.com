@@ -55,7 +55,7 @@ export default function DataForm(props: {
     new Date(2026, 7, 10),
     new Date(2026, 7, 11),
     new Date(2026, 7, 12),
-
+      new Date(2026, 7, 2),
     // bank holidays
     new Date(2026, 8, 12),
     new Date(2026, 10, 11),

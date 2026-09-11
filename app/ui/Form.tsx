@@ -311,9 +311,9 @@ export default function Form() {
             required
           >
             <option value="">Select an option</option>
-            <option value={30}>$30 an hour (discounted)</option>
-            <option value={40}>$40 an hour (standard)</option>
-            <option value={50}>$50 an hour (pay it forward)</option>
+            <option value={40}>$40 an hour (discounted)</option>
+            <option value={50}>$50 an hour (standard)</option>
+            <option value={60}>$60 an hour (pay it forward)</option>
           </select>
         </div>
 
