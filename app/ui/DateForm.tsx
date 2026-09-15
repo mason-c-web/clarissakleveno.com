@@ -43,6 +43,12 @@ export default function DataForm(props: {
     { date: new Date(2026, 8, 14), time: [12, 13, 14] },
     { date: new Date(2026, 9, 2), time: [10, 11, 12, 13] },
     { date: new Date(2026, 8, 10), time: [10, 11, 12, 13] },
+    { date: new Date(2026, 8, 22), time: [10, 11, 12] },
+    { date: new Date(2026, 8, 29), time: [10, 11, 12, 13] },
+    { date: new Date(2026, 9, 6), time: [10, 11, 12] },
+    { date: new Date(2026, 9, 13), time: [10, 11, 12] },
+    { date: new Date(2026, 9, 20), time: [10, 11, 12] },
+    { date: new Date(2026, 9, 1), time: [10, 11] },
   ];
 
   // Dates that are fully disabled
@@ -55,7 +61,7 @@ export default function DataForm(props: {
     new Date(2026, 7, 10),
     new Date(2026, 7, 11),
     new Date(2026, 7, 12),
-      new Date(2026, 7, 2),
+    new Date(2026, 9, 2),
     // bank holidays
     new Date(2026, 8, 12),
     new Date(2026, 10, 11),

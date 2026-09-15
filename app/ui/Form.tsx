@@ -255,10 +255,15 @@ export default function Form() {
             )}
           </div>
         </div>
-        <div>
+        <div className="flex flex-col items-center gap-2">
           <legend className="fieldset-legend m-1">
             Can you bring your own sewing machine?
           </legend>
+          <p className="label text-wrap">
+            Each machine is a little different, so yours will be the best to
+            learn on if you have one. If you cannot or do not own one, I always
+            have an loaner available.
+          </p>
           <select
             name="hasSewingMachine"
             className="select"
