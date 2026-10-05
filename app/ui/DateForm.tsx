@@ -33,39 +33,24 @@ export default function DataForm(props: {
 
   // Dates that only have specific times disabled
   const disabledDatetimes = [
-    { date: new Date(2026, 8, 2), time: [12, 13, 14, 15, 16] },
-    { date: new Date(2026, 8, 9), time: [12, 13, 14, 15, 16] },
-    { date: new Date(2026, 8, 16), time: [12, 13, 14, 15, 16] },
-    { date: new Date(2026, 8, 23), time: [12, 13, 14, 15, 16] },
-    { date: new Date(2026, 8, 30), time: [12, 13, 14, 15, 16] },
-    { date: new Date(2026, 8, 11), time: [14, 15, 16] },
-    { date: new Date(2026, 8, 18), time: [13, 14, 15, 16] },
-    { date: new Date(2026, 8, 14), time: [12, 13, 14] },
-    { date: new Date(2026, 9, 2), time: [10, 11, 12, 13] },
-    { date: new Date(2026, 8, 10), time: [10, 11, 12, 13] },
-    { date: new Date(2026, 8, 22), time: [10, 11, 12] },
-    { date: new Date(2026, 8, 29), time: [10, 11, 12, 13] },
-    { date: new Date(2026, 9, 6), time: [10, 11, 12] },
     { date: new Date(2026, 9, 13), time: [10, 11, 12] },
     { date: new Date(2026, 9, 20), time: [10, 11, 12] },
-    { date: new Date(2026, 9, 1), time: [10, 11] },
+    { date: new Date(2026, 9, 16), time: [14, 15, 16] },
+    { date: new Date(2026, 9, 19), time: [13, 14, 15, 16] },
+    { date: new Date(2026, 9, 27), time: [10, 11, 12] },
   ];
 
   // Dates that are fully disabled
   // Month count starts a index 0.... :C
   const disabledDates = [
-    new Date(2026, 7, 25),
-    new Date(2026, 7, 26),
-    new Date(2026, 7, 27),
-    new Date(2026, 7, 28),
-    new Date(2026, 7, 10),
-    new Date(2026, 7, 11),
-    new Date(2026, 7, 12),
-    new Date(2026, 9, 2),
+    new Date(2026, 9, 20),
+    new Date(2026, 9, 12),
+
     // bank holidays
-    new Date(2026, 8, 12),
+    new Date(2026, 9, 12),
     new Date(2026, 10, 11),
     new Date(2026, 10, 26),
+    new Date(2026, 11, 25),
   ];
   function convertHourToAmPM(hour: number) {
     let AMorPM = hour >= 12 ? "PM" : "AM";
