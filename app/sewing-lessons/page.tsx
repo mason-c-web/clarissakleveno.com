@@ -1,5 +1,6 @@
 "use client";
 import { Button } from "../ui/Button";
+import { Link } from "../ui/Link";
 import { LessonListItem } from "../ui/ListItems";
 import websiteData, { LessonData } from "../ui/websiteData";
 export default function Page() {
@@ -24,8 +25,13 @@ export default function Page() {
       <p className="py-4 text-center lg:max-w-7/10 m-auto mb-5 ">
         I teach sewing lesson in share office space in Ballard. My rate sliding
         scale from $40-$60 and hour, with most lessons being 2 hours. Lessons
-        slots are only during weekdays 9am-5pm. The different topics I teach are
-        available below. If you are interested fill out the form to get started.
+        slots are only during Mondays, Thursdays and Fridays 9am-5:30pm. The
+        different topics I teach are available below. If you interested but
+        can't make any of the available timeslots work your welcome to{" "}
+        <Link title={"message me."} href={"/contact"} />
+        <br />
+        <br />
+        Fill out the form below to get started.
       </p>
 
       <Button

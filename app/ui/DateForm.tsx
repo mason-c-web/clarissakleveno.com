@@ -9,15 +9,16 @@ import websiteData from "./websiteData";
 const availableTimes = [
   [], //sunday
   [9, 10, 11, 12, 13, 14, 15, 16], //monday
-  [9, 10, 11, 12, 13, 14, 15, 16], //tuesday
-  [9, 10, 11, 12, 13], //wednesday
+  [], //tuesday
+  [], //wednesday
   [9, 10, 11, 12, 13, 14, 15, 16], // thursday,
   [9, 10, 11, 12, 13, 14, 15, 16], // friday,
   [], //saturday
 ];
 
+// scheduling 50 days out
 const startDateRange = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days from now
-const endDateRange = new Date(Date.now() + 37 * 24 * 60 * 60 * 1000); // 37 days from now
+const endDateRange = new Date(Date.now() + 57 * 24 * 60 * 60 * 1000); // 57 days from now
 
 startDateRange.setHours(0, 0, 0, 0);
 endDateRange.setHours(0, 0, 0, 0);
@@ -102,7 +103,7 @@ export default function DataForm(props: {
           }}
           disabled={[
             disabledDates,
-            { dayOfWeek: [0, 6] },
+            { dayOfWeek: [0, 2, 3, 6] },
             {
               after: endDateRange,
               before: startDateRange,
