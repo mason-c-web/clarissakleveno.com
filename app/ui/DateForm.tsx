@@ -29,7 +29,7 @@ const availableSlots = [
 ];
 
 // scheduling 50 days out
-const startDateRange = new Date(Date.now() + 2 * 24 * 60 * 60 * 1000); // 7 days from now
+const startDateRange = new Date(Date.now() + 7 * 24 * 60 * 60 * 1000); // 7 days from now
 const endDateRange = new Date(Date.now() + 57 * 24 * 60 * 60 * 1000); // 57 days from now
 
 startDateRange.setHours(0, 0, 0, 0);
@@ -56,6 +56,7 @@ export default function DataForm(props: {
   const disabledDates = [
     new Date(2026, 9, 20),
     new Date(2026, 9, 12),
+    new Date(2026, 9, 26),
 
     // bank holidays
     new Date(2026, 9, 12),
