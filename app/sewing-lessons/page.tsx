@@ -16,7 +16,8 @@ export default function Page() {
         I'm currently not offering lessons while I'm looking for a new location
         to host sewing lessons in Ballard. If you have shared office space or
         studio you would like to sublet, please{" "}
-        <Link title={"message me."} href={"/contact"} />!
+        <Link title={"message me"} href={"/contact"} />! Previous student can
+        contactly me directly for lessons.
       </p>
 
       {/* // <p className="py-4 text-center lg:max-w-7/10 m-auto ">
