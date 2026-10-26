@@ -9,22 +9,24 @@ const MonThursSlots = [
   "9:30 AM - 11:30 AM",
   "12:00 PM - 2:00 PM",
   "2:30 PM - 4:30 PM",
+  "5:00 PM - 7:00 PM",
 ];
 
 const friSlots = [
-  "10:30 AM -12:30 PM",
-  "1:00 PM - 3:00 PM",
-  "3:30 PM - 5:30 PM",
+  "9:30 AM - 11:30 AM",
+  "12:00 PM - 2:00 PM",
+  "2:30 PM - 4:30 PM",
+  "5:00 PM - 7:00 PM",
 ];
 
 // // 9-16 is 9am-5pm
 const availableSlots = [
   [], //sunday
-  [0, 1, 2], //monday
+  [0, 1, 2, 3], //monday
   [], //tuesday
   [], //wednesday
-  [0, 1, 2], // thursday,
-  [0, 1, 2], // friday,
+  [0, 1, 2, 3], // thursday,
+  [0, 1, 2, 3], // friday,
   [], //saturday
 ];
 
@@ -49,6 +51,7 @@ export default function DataForm(props: {
     { date: new Date(2026, 9, 15), slots: [1, 2] },
     { date: new Date(2026, 9, 19), slots: [1] },
     { date: new Date(2026, 9, 23), slots: [0, 1] },
+    { date: new Date(2026, 10, 13), slots: [0, 1, 2] },
   ];
 
   // Dates that are fully disabled

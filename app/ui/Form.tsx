@@ -222,9 +222,8 @@ export default function Form() {
               Select two tentative dates and times for the lesson.
             </legend>
             <p className="label text-wrap">
-              This does not guarantee a slot. Once I verify the date and time is
-              available at the shared office space, I will send you a follow up
-              email with an invite.
+              This does not guarantee a slot. I will confirm scheduling by send
+              you a follow up email an invite.
             </p>
           </div>
 
@@ -255,7 +254,7 @@ export default function Form() {
             )}
           </div>
         </div>
-        <div className="flex flex-col items-center gap-2">
+        {/* <div className="flex flex-col items-center gap-2">
           <legend className="fieldset-legend m-1">
             Can you bring your own sewing machine?
           </legend>
@@ -276,7 +275,7 @@ export default function Form() {
             <option key={2}>Yes, I can bring my own machine</option>
             <option key={3}>No, I will use the one provided.</option>
           </select>
-        </div>
+        </div> */}
         <div className="flex flex-col items-center gap-2">
           <div className="flex flex-col items-center gap-2">
             <legend className="fieldset-legend">

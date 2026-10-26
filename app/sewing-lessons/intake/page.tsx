@@ -19,14 +19,14 @@ export default function Page() {
           <li>
             If don't have any follow up questions, I will send you an invite
             with the date and location based on your availablity and request
-            payment.
+            payment. I use either venmo or cash.
           </li>
           <li>The requested amount must be paid before the lesson.</li>
-          <li>
+          {/* <li>
             Lessons take place in a shared office space in Ballard. We have a
             private room but other amenities are shared. There is access to a
             ADA bathroom. No stairs to enter the building or room.
-          </li>
+          </li> */}
           <li>
             Feel free to reach me through my{" "}
             <Link href="/contact" title={"contact form"} /> if you have any
